@@ -13,7 +13,6 @@ do
 	#whois_search_OG=`whois $ip | grep -e "NetRange" -e "Organization" -e "CIDR" | sed 's/Organization//' | sed 's/NetRange://' | sed 's/CIDR//' | tr -d '\n' | tr -d "   "`
 	whois_search=`whois $ip | grep -e "inetnum" -e 'route' | awk '!/routes/' |  sed 's/inetnum://' | sed 's/route//' | tr -d '\n' | tr -d "   "`
 	whois_search2=`whois $ip | grep -m 1 "descr" | sed 's/descr://' | tr -d '\n' | tr -d "   "` 
-	#whois_search=`whois $ip | grep -e "inetnum" -e "route" -e "owner" | sed 's/inetnum//' | sed 's/owner//' |  tr -d '\n' | tr -d "   "`
-	#filtered_whois_results=`echo $whois_search | grep -e "Ecolab" -e "Nalco" #Filters whois search for only IPs associated w/ Ecolab and Nalco
+	#whois_search=`whois $ip | grep -e "inetnum" -e "route" -e "owner" | sed 's/inetnum//' | sed 's/owner//' |  tr -d '\n' | tr -d "   "
 	echo "$ip:$whois_search:$whois_search2" #Prints ip and whois results 
 done
