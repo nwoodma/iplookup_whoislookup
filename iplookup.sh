@@ -24,8 +24,8 @@ do
 	do
 		#echo "$host:$ip" #Prints {subdomain:IP}
 		whois_search=`whois $ip | grep -e "NetRange" -e "Organization" -e "CIDR" | sed 's/Organization//' | sed 's/NetRange://' | sed 's/CIDR//' |  tr -d '\n' | tr -d "   "`
-		#filtered_whois_results=`echo $whois_search | grep -e "Ecolab" -e "Nalco"`
-		#if  [[ $filtered_whois_results = "Ecolab" || $filtered_whois_results = "Nalco" ]]
+		#filtered_whois_results=`echo $whois_search | grep -e "CompanyName"`
+		#if  [[ $filtered_whois_results = "CompanyName" || $filtered_whois_results = "CompanyName2" ]]
 		#then
 		#cidr=`echo $filtered_whois_results | grep -E "^[^^][0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}"`
 		#echo -e "$host:$ip\n$filtered_whois_results"
